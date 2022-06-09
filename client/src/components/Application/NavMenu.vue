@@ -49,6 +49,11 @@ export default {
         route: '/users',
         icon: 'mdi-account-group',
       },
+      {
+        text: 'Campaign',
+        route: '/campaign',
+        icon: 'mdi-account-group',
+      },
     ],
   }),
 }
