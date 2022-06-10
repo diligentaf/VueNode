@@ -40,7 +40,7 @@ export default {
   data: () => ({
     navLinks: [
       {
-        text: 'Home',
+        text: 'Campaign',
         route: '/',
         icon: 'mdi-home',
       },
