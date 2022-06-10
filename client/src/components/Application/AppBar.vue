@@ -14,7 +14,7 @@
         <v-icon class="bright--text">mdi-menu</v-icon>
       </v-btn>
       <div class="d-flex align-center">
-        <h1>MEVN Stack</h1>
+        <h1>Drop The Bit 💰</h1>
       </div>
 
       <v-spacer></v-spacer>
