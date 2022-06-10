@@ -25,4 +25,4 @@ const options = {
 
 const campaignSchema = new mongoose.Schema(definition, options)
 
-module.exports = mongoose.model('CampaignYo', campaignSchema)
+module.exports = mongoose.model('campaign', campaignSchema)

@@ -13,17 +13,17 @@
 </template>
 
 <script>
-import TheUsersList from '../components/Users/TheUsersList/TheUsersList.vue'
-import NewUserForm from '../components/Users/NewUserForm.vue'
+import TheCampaignsList from '../components/Campaigns/TheCampaignsList/TheCampaignsList.vue'
+import NewCampaignForm from '../components/Campaigns/NewCampaignForm.vue'
 import { loadingStates } from '../mixins/loading-state'
 import { ModalService } from '../services/modal.service'
 
 export default {
-  name: 'UsersPage',
+  name: 'CampaignsPage',
   mixins: [loadingStates],
 
   components: {
-    TheUsersList,
+    TheCampaignsList,
   },
 
   data: () => ({
@@ -36,7 +36,7 @@ export default {
     // },
 
     showAddModal() {
-      ModalService.openGenericModal(NewUserForm)
+      ModalService.openGenericModal(NewCampaignForm)
     },
   },
 }

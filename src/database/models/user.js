@@ -25,4 +25,4 @@ const options = {
 
 const userSchema = new mongoose.Schema(definition, options)
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = mongoose.model('user', userSchema)
