@@ -45,10 +45,10 @@
 <script>
 import { loadingStates } from '../../../mixins/loading-state'
 import { ModalService } from '../../../services/modal.service'
-import EditUserForm from '../EditUserForm.vue'
+import EditCampaignForm from '../EditCampaignForm.vue'
 
 export default {
-  name: 'UserListRow',
+  name: 'CampaignListRow',
   mixins: [loadingStates],
 
   props: {
@@ -69,7 +69,7 @@ export default {
     },
 
     openEditModal() {
-      ModalService.openGenericModal(EditUserForm, { user: this.user })
+      ModalService.openGenericModal(EditCampaignForm, { user: this.user })
     },
 
     openDeleteModal() {
@@ -77,7 +77,7 @@ export default {
       ModalService.openConfirmModal({
         loading: () => this.$store.getters['users/Loading'],
         destructive: true,
-        heading: `Delete User "${this.user.name}"?`,
+        heading: `Delete Campaign "${this.user.name}"?`,
         body: `"${this.user.name}" will be permanently deleted.`,
         id: this.user._id,
       })

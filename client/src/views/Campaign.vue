@@ -7,7 +7,7 @@
           Add Campaign
         </v-btn>
       </v-layout>
-      <the-users-list class="mt-5" />
+      <the-campaigns-list class="mt-5" />
     </v-layout>
   </div>
 </template>

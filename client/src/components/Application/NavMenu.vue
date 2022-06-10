@@ -50,8 +50,8 @@ export default {
         icon: 'mdi-account-group',
       },
       {
-        text: 'Campaign',
-        route: '/campaign',
+        text: 'Home',
+        route: '/home',
         icon: 'mdi-account-group',
       },
     ],

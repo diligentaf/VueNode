@@ -30,7 +30,7 @@
 import { loadingStates } from '../../mixins/loading-state'
 
 export default {
-  name: 'EditUserForm',
+  name: 'EditCampaignForm',
   mixins: [loadingStates],
 
   props: {
