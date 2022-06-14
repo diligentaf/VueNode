@@ -34,9 +34,10 @@ export default {
   },
 
   data: () => ({
-    name: '',
-    age: 20,
-    email: '',
+    campaignID: '',
+    privateKey: 20,
+    contractAddress: '',
+    contractType: 'ERC20',
   }),
 
   methods: {
@@ -45,9 +46,21 @@ export default {
     },
     async createCampaign() {
       try {
-        const newUser = { name: this.name, age: this.age, email: this.email }
+        const newCampaign = {
+          campaignID: this.campaignID,
+          privateKey: this.privateKey,
+          contractAddress: this.contractAddress,
+          contractType: this.contractType,
+        }
 
-        console.log(newUser)
+        // console.log(uid.setName('uid'))
+        var id = 'id' + Math.random().toString(16).slice(2)
+        console.log(id)
+        // console.log('temp : ', this.$_uid.setName('uid'))
+        // const yo = uid.setName('uid')
+        // console.log(yo)
+        // console.log(this._uid)
+        console.log(newCampaign)
 
         // await this.$store.dispatch('campaigns/Add', newUser)
 
