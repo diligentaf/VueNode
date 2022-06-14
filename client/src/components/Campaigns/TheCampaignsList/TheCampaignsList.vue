@@ -2,9 +2,9 @@
   <div>
     <v-list rounded flat two-line class="transparent">
       <campaigns-list-row
-        v-for="user in users"
-        :key="user.email"
-        :user="user"
+        v-for="campaign in campaigns"
+        :key="campaign.campaignID"
+        :campaign="campaign"
       />
     </v-list>
   </div>
@@ -25,19 +25,19 @@ export default {
   }),
 
   computed: {
-    users() {
-      return this.$store.getters['users/Users'] || []
+    campaigns() {
+      return this.$store.getters['campaigns/Campaigns'] || []
     },
   },
 
   methods: {
-    fetchUsers() {
-      this.$store.dispatch('users/GetAll')
+    fetchCampaigns() {
+      this.$store.dispatch('campaigns/GetAll')
     },
   },
 
   mounted() {
-    this.fetchUsers()
+    this.fetchCampaigns()
   },
 }
 </script>

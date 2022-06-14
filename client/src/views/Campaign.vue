@@ -6,6 +6,13 @@
         <v-btn color="success" @click="showAddModal()" :loading="usersLoading">
           Add Campaign
         </v-btn>
+        <v-btn
+          color="success"
+          @click="createCampaign()"
+          :loading="usersLoading"
+        >
+          Create Campaign
+        </v-btn>
       </v-layout>
       <the-campaigns-list class="mt-5" />
     </v-layout>
@@ -27,16 +34,28 @@ export default {
   },
 
   data: () => ({
-    // showAddModal: false,
+    name: '',
+    age: 20,
+    email: '',
   }),
 
   methods: {
-    // toggleAddModal(show) {
-    //   this.showAddModal = !!show
-    // },
-
     showAddModal() {
       ModalService.openGenericModal(NewCampaignForm)
+    },
+    async createCampaign() {
+      try {
+        const newUser = { name: this.name, age: this.age, email: this.email }
+
+        console.log(newUser)
+
+        // await this.$store.dispatch('campaigns/Add', newUser)
+
+        // this.$emit('success', newUser)
+      } catch (error) {
+        console.error(error)
+        this.$emit('error', { error })
+      }
     },
   },
 }

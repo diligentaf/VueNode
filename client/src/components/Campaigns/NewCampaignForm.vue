@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <v-card-title class="primary bright--text">Add New User</v-card-title>
+    <v-card-title class="primary bright--text">Add New Campaign</v-card-title>
 
     <v-card-text>
       <v-form>

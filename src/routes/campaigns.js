@@ -1,16 +1,16 @@
 const express = require('express')
-const { campaignsController } = require('../controllers/index')
+const { campaignController } = require('../controllers/index')
 
 const router = express.Router()
 
-router.get('/', campaignsController.index)
+router.get('/', campaignController.index)
 
-router.post('/', campaignsController.store)
+router.post('/', campaignController.store)
 
-router.get('/:id', campaignsController.show)
+router.get('/:id', campaignController.show)
 
-router.delete('/:id', campaignsController.destroy)
+router.delete('/:id', campaignController.destroy)
 
-router.put('/:id', campaignsController.update)
+router.put('/:id', campaignController.update)
 
 module.exports = router
