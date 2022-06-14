@@ -41,7 +41,7 @@
         href="https://github.com/aturingmachine/mevn-stack"
         target="blank"
       >
-        <v-icon>mdi-github</v-icon>
+        <v-icon>mdi-wallet</v-icon>
       </v-btn>
     </v-app-bar>
   </div>

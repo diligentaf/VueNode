@@ -49,6 +49,10 @@ export default {
     async createCampaign() {
       try {
         this.campaignID = 'id' + Math.random().toString(16).slice(2)
+        if (this.amount == '' || this.numLink == '' || this.contractAddress) {
+          alert('please input all the blank fields')
+          return
+        }
         const newCampaign = {
           campaignID: this.campaignID,
           privateKey: this.privateKey,
