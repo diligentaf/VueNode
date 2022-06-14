@@ -17,6 +17,14 @@ const definition = {
     type: String,
     required: true,
   },
+  amount: {
+    type: Number,
+    required: true,
+  },
+  numLink: {
+    type: Number,
+    required: true,
+  },
 }
 
 const options = {

@@ -2,10 +2,11 @@
   <v-list-item class="user-row elevation-2">
     <v-layout row align-content-center justify-space-between pa-3>
       <div class="d-flex flex-column align-start pl-1">
-        {{ user.name }}: {{ user.age }}
+        <div class="d-flex">campaign ID : {{ campaign.campaignID }}</div>
         <div class="d-flex">
-          {{ user.email }}
+          contract address : {{ campaign.contractAddress }}
         </div>
+        <div class="d-flex">number of link : {{ campaign.numLink }}</div>
       </div>
       <div class="d-flex align-center">
         <v-btn
@@ -16,43 +17,21 @@
         >
           <v-icon>mdi-delete</v-icon>
         </v-btn>
-
-        <v-btn
-          @click="openEditModal()"
-          class="accent bright--text align-self-center"
-          icon
-          :loading="usersLoading"
-        >
-          <v-icon>mdi-pencil</v-icon>
-        </v-btn>
       </div>
     </v-layout>
-
-    <!-- <modal :show="showAddModal" @close="toggleAddModal">
-      <template v-slot:modal-header>Edit User</template>
-      <template v-slot:modal-body>
-        <edit-user-form
-          :user="user"
-          @add-user-success="toggleAddModal(false)"
-          @add-user-error="toggleAddModal(false)"
-          @close="toggleAddModal"
-        />
-      </template>
-    </modal> -->
   </v-list-item>
 </template>
 
 <script>
 import { loadingStates } from '../../../mixins/loading-state'
 import { ModalService } from '../../../services/modal.service'
-import EditCampaignForm from '../EditCampaignForm.vue'
 
 export default {
   name: 'CampaignListRow',
   mixins: [loadingStates],
 
   props: {
-    user: {
+    campaign: {
       type: Object,
       required: true,
     },
@@ -68,18 +47,14 @@ export default {
       this.showAddModal = !!show
     },
 
-    openEditModal() {
-      ModalService.openGenericModal(EditCampaignForm, { user: this.user })
-    },
-
     openDeleteModal() {
-      console.log(this.user)
+      console.log(this.campaign)
       ModalService.openConfirmModal({
-        loading: () => this.$store.getters['users/Loading'],
+        loading: () => this.$store.getters['campaigns/Loading'],
         destructive: true,
-        heading: `Delete Campaign "${this.user.name}"?`,
-        body: `"${this.user.name}" will be permanently deleted.`,
-        id: this.user._id,
+        heading: `Delete Campaign "${this.campaign.campaignID}"?`,
+        body: `"${this.campaign.campaignID}" will be permanently deleted.`,
+        id: this.campaign._id,
       })
     },
   },
