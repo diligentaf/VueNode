@@ -24,6 +24,8 @@ import TheCampaignsList from '../components/Campaigns/TheCampaignsList/TheCampai
 import NewCampaignForm from '../components/Campaigns/NewCampaignForm.vue'
 import { loadingStates } from '../mixins/loading-state'
 import { ModalService } from '../services/modal.service'
+import detectEthereumProvider from '@metamask/detect-provider'
+import Web3 from 'web3'
 
 export default {
   name: 'CampaignsPage',
@@ -72,6 +74,42 @@ export default {
         this.$emit('error', { error })
       }
     },
+    // metamask shits
+    async detectEthereum() {
+      const provider = await detectEthereumProvider()
+      if (provider) {
+        await this.startApp(provider)
+      } else {
+        // 에러메세지
+      }
+    },
+    startApp(provider) {
+      if (provider !== window.ethereum) {
+        this.failToast('Do you have multiple wallets installed?')
+      } else if (window.ethereum && window.ethereum.isMetaMask) {
+        this.connect()
+      }
+    },
+    async connect() {
+      await window.ethereum
+        .request({ method: 'eth_requestAccounts' })
+        .then(this.handleAccountsChanged)
+        .catch((err) => {
+          if (err.code === 4001) {
+            console.log(err.message)
+          } else {
+            console.error(err)
+          }
+        })
+    },
+    handleAccountsChanged(accounts) {
+      console.log(accounts)
+    },
+  },
+  mounted() {
+    console.log(detectEthereumProvider)
+    console.log(Web3)
+    this.detectEthereum()
   },
 }
 </script>
