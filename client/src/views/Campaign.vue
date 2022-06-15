@@ -51,7 +51,11 @@ export default {
     async createCampaign() {
       try {
         this.campaignID = 'id' + Math.random().toString(16).slice(2)
-        if (this.amount == '' || this.numLink == '' || this.contractAddress) {
+        if (
+          this.amount == '' ||
+          this.numLink == '' ||
+          this.contractAddress == ''
+        ) {
           alert('please input all the blank fields')
           return
         }
@@ -63,8 +67,6 @@ export default {
           amount: parseInt(this.amount),
           numLink: parseInt(this.numLink),
         }
-
-        console.log(newCampaign)
 
         await this.$store.dispatch('campaigns/Add', newCampaign)
 
