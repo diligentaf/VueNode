@@ -2,11 +2,14 @@
   <v-list-item class="user-row elevation-2">
     <v-layout row align-content-center justify-space-between pa-3>
       <div class="d-flex flex-column align-start pl-1">
+        <div class="d-flex">client address : {{ campaign.client }}</div>
         <div class="d-flex">campaign ID : {{ campaign.campaignID }}</div>
         <div class="d-flex">
           contract address : {{ campaign.contractAddress }}
         </div>
+        <div class="d-flex">total amount : {{ campaign.amount }}</div>
         <div class="d-flex">number of link : {{ campaign.numLink }}</div>
+        <div class="d-flex">number of link : {{ campaign.contractType }}</div>
       </div>
       <div class="d-flex align-center">
         <v-btn

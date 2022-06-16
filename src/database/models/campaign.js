@@ -25,6 +25,10 @@ const definition = {
     type: Number,
     required: true,
   },
+  client: {
+    type: String,
+    required: true,
+  },
 }
 
 const options = {

@@ -18,6 +18,8 @@ const index = async (_req, res) => {
 
 const store = async (req, res) => {
   const campaign = new Campaign(req.body)
+  console.log(campaign)
+  console.log(campaign.client)
 
   try {
     const createdCampaign = await campaign.save()

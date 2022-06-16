@@ -25,7 +25,7 @@ import NewCampaignForm from '../components/Campaigns/NewCampaignForm.vue'
 import { loadingStates } from '../mixins/loading-state'
 import { ModalService } from '../services/modal.service'
 import detectEthereumProvider from '@metamask/detect-provider'
-import Web3 from 'web3'
+// import Web3 from 'web3'
 
 export default {
   name: 'CampaignsPage',
@@ -36,12 +36,13 @@ export default {
   },
 
   data: () => ({
+    contractAddress: 'abab',
+    amount: '111',
+    numLink: '22',
     campaignID: '',
     privateKey: 20,
-    contractAddress: '',
     contractType: 'ERC20',
-    amount: '',
-    numLink: '',
+    client: '',
   }),
 
   methods: {
@@ -66,6 +67,7 @@ export default {
           contractType: this.contractType,
           amount: parseInt(this.amount),
           numLink: parseInt(this.numLink),
+          client: this.client,
         }
 
         await this.$store.dispatch('campaigns/Add', newCampaign)
@@ -105,12 +107,12 @@ export default {
         })
     },
     handleAccountsChanged(accounts) {
-      console.log(accounts)
+      this.client = accounts[0]
     },
   },
   mounted() {
-    console.log(detectEthereumProvider)
-    console.log(Web3)
+    // console.log(detectEthereumProvider)
+    // console.log(Web3)
     this.detectEthereum()
   },
 }
