@@ -36,9 +36,9 @@ export default {
   },
 
   data: () => ({
-    contractAddress: 'abab',
-    amount: '111',
-    numLink: '22',
+    contractAddress: '0x75B0228fefc9937c72637bA8Fc711Bbc1B98912b',
+    amount: '1000',
+    numLink: '10',
     campaignID: '',
     privateKey: 20,
     contractType: 'ERC20',
