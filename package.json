@@ -20,7 +20,9 @@
     "mongoose": "^6.0.4",
     "morgan": "^1.10.0",
     "trunks-log": "^2.0.3",
-    "web3": "^1.7.3"
+    "web3": "^1.7.3",
+    "@nomiclabs/hardhat-truffle5": "^2.0.6",
+    "@openzeppelin/contracts": "^4.6.0"
   },
   "devDependencies": {
     "boxen": "^5.0.1",
@@ -28,8 +30,16 @@
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "hardhat": "^2.9.9",
     "nodemon": "^2.0.12",
-    "prettier": "^2.3.2"
+    "prettier": "^2.3.2",
+    "@nomiclabs/hardhat-ethers": "^2.0.5",
+    "@nomiclabs/hardhat-waffle": "^2.0.3",
+    "@nomiclabs/hardhat-web3": "^2.0.0",
+    "chai": "^4.3.6",
+    "ethereum-waffle": "^3.4.4",
+    "ethers": "^5.6.5",
+    "hardhat-gas-reporter": "^1.0.8"
   },
   "nodemonConfig": {
     "ignore": [

@@ -12,3 +12,14 @@ yarn-error.log
 *.ntvs*
 *.njsproj
 *.sln
+
+# hardhat
+contracts/artifacts/*
+node_modules
+cache/*
+artifacts
+artifacts/*
+cache
+cache/*
+package-lock.json
+.secret

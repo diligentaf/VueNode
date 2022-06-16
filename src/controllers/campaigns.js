@@ -1,5 +1,8 @@
 const { Campaign } = require('../database/models')
 const trunks = require('trunks-log')
+const crypto = require('crypto')
+// const ethers = require('ethers')
+const { ethers } = require('hardhat')
 
 const log = new trunks('CAMPAIGNS')
 
@@ -18,8 +21,26 @@ const index = async (_req, res) => {
 
 const store = async (req, res) => {
   const campaign = new Campaign(req.body)
-  console.log(campaign)
-  console.log(campaign.client)
+
+  // MOOG
+  // generating validator private key
+  var id = crypto.randomBytes(32).toString('hex')
+  var privateKey = '0x' + id
+  var validator = new ethers.Wallet(privateKey)
+
+  const [...clients] = await ethers.getSigners()
+  const TokenContract = await ethers.getContractFactory('Token')
+  let Token = await TokenContract.connect(clients[0]).deploy()
+  // let wallet = new ethers.Wallet(privateKey);
+  console.log('/////////')
+  console.log(Token.address)
+  console.log('/////////')
+  console.log(await Token.balanceOf(validator.address))
+  console.log('/////////')
+  await Token.connect(clients[0]).transfer(validator.address, 1000)
+  console.log('validator address : ', validator.address)
+  console.log('validator balance : ', await Token.balanceOf(validator.address))
+  console.log('/////////')
 
   try {
     const createdCampaign = await campaign.save()
